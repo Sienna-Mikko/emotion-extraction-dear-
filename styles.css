@@ -13,7 +13,9 @@ body {
 }
 
 .container {
-  max-width: 900px;
+
+  max-width: 960px;
+
   margin: 2rem auto;
   background: #fff;
   border-radius: 14px;
@@ -64,11 +66,34 @@ button.secondary {
   background: #475569;
 }
 
+
+.rule-note {
+  margin-top: 1.25rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.rule-note h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.rule-note ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #334155;
+}
+
+
 .result-section {
   margin-top: 1.5rem;
 }
 
-#pointsList {
+
+ol {
+
   margin: 0;
   padding-left: 1.25rem;
   color: #0f172a;
@@ -84,8 +109,14 @@ button.secondary {
   background: #f8fafc;
 }
 
-.emphasis {
+
+.emphasis-bold {
   font-weight: 700;
+  color: #0f172a;
+}
+
+.emphasis-italic {
+
   font-style: italic;
   color: #0f172a;
 }
