@@ -13,7 +13,9 @@ body {
 }
 
 .container {
+
   max-width: 960px;
+
   margin: 2rem auto;
   background: #fff;
   border-radius: 14px;
@@ -64,6 +66,7 @@ button.secondary {
   background: #475569;
 }
 
+
 .rule-note {
   margin-top: 1.25rem;
   padding: 0.8rem 1rem;
@@ -83,11 +86,14 @@ button.secondary {
   color: #334155;
 }
 
+
 .result-section {
   margin-top: 1.5rem;
 }
 
+
 ol {
+
   margin: 0;
   padding-left: 1.25rem;
   color: #0f172a;
@@ -103,12 +109,14 @@ ol {
   background: #f8fafc;
 }
 
+
 .emphasis-bold {
   font-weight: 700;
   color: #0f172a;
 }
 
 .emphasis-italic {
+
   font-style: italic;
   color: #0f172a;
 }
