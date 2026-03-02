@@ -84,16 +84,10 @@ button.secondary {
   background: #f8fafc;
 }
 
-.highlight {
-  background: #fde68a;
-  border-radius: 4px;
-  padding: 0 2px;
-}
-
-.underline {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-decoration-color: #0ea5e9;
+.emphasis {
+  font-weight: 700;
+  font-style: italic;
+  color: #0f172a;
 }
 
 .empty {

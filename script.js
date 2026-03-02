@@ -44,7 +44,7 @@ const pickTopPoints = (text) => {
     index,
   }));
 
-  const count = Math.min(3, Math.max(1, Math.round(sentences.length / 3)));
+  const count = Math.min(7, Math.max(1, Math.round(sentences.length / 2)));
 
   return scored
     .sort((a, b) => b.score - a.score)
@@ -63,14 +63,14 @@ const annotateText = (text, points) => {
 
   points.forEach((point, idx) => {
     const escapedPoint = escapeHtml(point);
-    const markerClass = idx % 2 === 0 ? 'highlight' : 'underline';
+    const markerClass = 'emphasis';
     html = html.replace(escapedPoint, `<span class="${markerClass}">${escapedPoint}</span>`);
   });
 
   emphasisWords.forEach((word) => {
     const safeWord = escapeHtml(word);
     const reg = new RegExp(safeWord, 'g');
-    html = html.replace(reg, `<span class="underline">${safeWord}</span>`);
+    html = html.replace(reg, `<span class="emphasis">${safeWord}</span>`);
   });
 
   return html;
