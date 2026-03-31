@@ -3,42 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kimi 文本重点提取器</title>
+    <title>Sienna · 温暖记录</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="container">
-      <h1>Kimi 文本重点提取器</h1>
-      <p class="intro">输入 GPT 文本，点击“AI 分析”，后端会调用 Kimi API 返回三类结果。</p>
+    <main class="app-shell">
+      <header class="topbar">
+        <h1>Sienna 💙</h1>
+        <nav class="tabs" aria-label="主导航">
+          <button class="tab-btn active" data-tab="home">home</button>
+          <button class="tab-btn" data-tab="mikkohub">Mikkohub</button>
+          <button class="tab-btn" data-tab="care">care</button>
+        </nav>
+      </header>
 
-      <label for="inputText">输入文本</label>
-      <textarea id="inputText" rows="10" placeholder="粘贴文本..."></textarea>
-
-      <div class="actions">
-        <button id="analyzeBtn">AI 分析</button>
-        <button id="demoBtn" class="secondary">填充示例</button>
-      </div>
-
-      <p id="status" class="status"></p>
-
-      <section class="result-section">
-        <h2>加粗：短句/词语（1-5）</h2>
-        <ol id="boldShortList"></ol>
+      <section id="home" class="tab-panel active">
+        <h2>欢迎回家，Sienna💙</h2>
+        <p id="homeQuote" class="home-quote"></p>
       </section>
 
-      <section class="result-section">
-        <h2>加粗：长句（1-5）</h2>
-        <ol id="boldLongList"></ol>
+      <section id="mikkohub" class="tab-panel">
+        <div class="section-head">
+          <h2>Mikkohub · 文字信息储存库</h2>
+          <button id="createBookBtn">新建一卷</button>
+        </div>
+
+        <div class="book-grid" id="bookGrid"></div>
+
+        <div id="bookDetail" class="book-detail hidden">
+          <div class="book-toolbar">
+            <input id="bookTitleInput" type="text" maxlength="40" placeholder="这本卷册的名字" />
+            <label class="mode-toggle">
+              <span>仅阅读模式</span>
+              <input id="readOnlyToggle" type="checkbox" />
+            </label>
+            <label class="cover-upload">
+              <span>封面</span>
+              <input id="coverInput" type="file" accept="image/*" />
+            </label>
+            <span id="charCount" class="counter">0 / 100000</span>
+          </div>
+
+          <div id="coverPreview" class="cover-preview"></div>
+          <small id="bookCreatedAt" class="created-at"></small>
+          <textarea id="bookContent" rows="15" placeholder="把今天想记下的文字，轻轻放在这里。"></textarea>
+        </div>
+
+        <div class="search-block">
+          <h3>全局搜索</h3>
+          <div class="search-line">
+            <input id="searchInput" type="text" placeholder="输入关键词，搜索全部卷册..." />
+            <button id="searchBtn" class="secondary">搜索</button>
+          </div>
+          <ul id="searchResults" class="search-results"></ul>
+        </div>
       </section>
 
-      <section class="result-section">
-        <h2>倾斜：短句（1-3）</h2>
-        <ol id="italicShortList"></ol>
-      </section>
-
-      <section class="result-section">
-        <h2>标注后的文本</h2>
-        <div id="annotatedText" class="annotated"></div>
+      <section id="care" class="tab-panel">
+        <h2>care · 健康记录</h2>
+        <p class="muted">系统会按今天日期保存体重记录。</p>
+        <div class="care-input-row">
+          <input id="weightInput" type="number" step="0.1" min="1" placeholder="输入今天体重 (kg)" />
+          <button id="saveWeightBtn">保存今天体重</button>
+        </div>
+        <p id="weightStatus" class="muted"></p>
+        <canvas id="weightChart" width="900" height="320" aria-label="体重折线图"></canvas>
       </section>
     </main>
 

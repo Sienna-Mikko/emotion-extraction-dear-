@@ -1,58 +1,44 @@
+# Sienna Warm Record (Android App)
 
-# Kimi API 版重点提取网站
+这是一个 **Kotlin + Jetpack Compose** 的 Android App 工程，可以直接导入 Android Studio。
 
-你现在已经拿到 API Key，这一版就是给你直接接 Kimi 的：
-- 前端输入文本；
-- 后端调用 Kimi；
-- 返回三类结果并在原文标注（加粗短句/词语、加粗长句、倾斜短句）。
+## 功能结构
 
-## 1. 安装依赖
+- **Home**
+  - 欢迎文案：`欢迎回家，Sienna💙`
+  - 启动后随机抽取一句情感副标题，并在当前会话内保持不变。
 
-```bash
-npm install
-```
+- **Mikkohub**（本地文字储存）
+  - 创建卷册、编辑卷册名
+  - 编辑/仅阅读模式切换
+  - 选择图片作为封面
+  - 每卷显示创建日期
+  - 达到 `100000` 字时弹窗提示：
+    `sienna💙这本已经很厚了，要不要开新卷?`
+  - 全局搜索所有卷册，返回片段并可点击定位到对应卷册
 
-## 2. 配置 API Key
+- **Care**（健康记录）
+  - 每日记录体重
+  - 折线图以日期为 X 轴、体重为 Y 轴
+  - 中间断更会断线，不会误连
 
-复制模板并填写你的 key：
+## 技术栈
 
-```bash
-cp .env.example .env
-```
+- Kotlin
+- Jetpack Compose + Material3
+- DataStore Preferences（本地持久化）
+- Kotlinx Serialization
 
-编辑 `.env`：
+## 导入 Android Studio
 
-```env
-KIMI_API_KEY=你的apikey
-KIMI_BASE_URL=https://api.moonshot.cn/v1
-KIMI_MODEL=moonshot-v1-8k
-PORT=4173
-```
+1. 打开 Android Studio
+2. `File -> Open` 选择本仓库根目录
+3. 等待 Gradle Sync 完成
+4. 连接模拟器或真机后运行 `app`
 
-## 3. 启动
+## 关键文件
 
-```bash
-npm start
-```
-
-打开浏览器访问：`http://localhost:4173`
-
-## 4. 使用
-
-1. 粘贴文本
-2. 点击 `AI 分析`
-3. 查看三类提取结果和标注后的文本
-
-## 5. 目录说明
-
-- `server.js`：后端（接收文本，调用 Kimi API，清洗并返回结果）
-- `public/index.html`：页面结构
-- `public/script.js`：前端交互与渲染
-- `public/styles.css`：样式
-- `.env.example`：环境变量模板
-
-## 6. 注意事项
-
-- **不要把 `.env` 提交到仓库**（里面有密钥）。
-- 如果报错 `后端未配置 KIMI_API_KEY`，说明 `.env` 还没配好。
-- 如果提示 `Kimi API 调用失败`，先检查 key、额度、模型名。
+- `app/src/main/java/com/sienna/warmrecord/MainActivity.kt`
+- `app/src/main/AndroidManifest.xml`
+- `app/build.gradle.kts`
+- `settings.gradle.kts`
